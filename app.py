@@ -20,6 +20,7 @@ import requests
 import json
 import sys
 import logging
+import os
 from decouple import config
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
@@ -42,7 +43,7 @@ TO_EMAIL = config('TO_EMAIL')
 cf_api_headers = {"X-Auth-Email": CLOUFLARE_X_AUTH_EMAIL, "X-Auth-Key": CLOUDFLARE_API_KEY, "Content-Type": "application/json"}
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG, filename='app.log', filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, filename=os.path.join(os.environ.get('HOME'),'app.log'), filemode='w', format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Functions
 def send_notification(content):
