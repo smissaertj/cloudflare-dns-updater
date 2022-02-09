@@ -90,7 +90,7 @@ def get_domain_dns():
 def update_domain_dns(public_ip):
     """ Update the CF domain DNS A record with the value of public_ip """
 
-    data = {"type": "A", "name": CF_DOMAIN, "content": public_ip, "ttl": 3600, "proxied": False}
+    data = {"type": "A", "name": CF_DOMAIN, "content": public_ip, "ttl": 3600, "proxied": True}
 
     try:
         response = requests.put(CLOUDFLARE_API_BASE_URL + "/zones/" + CLOUDFLARE_ZONE_ID + "/dns_records/" + CF_DOMAIN_ID, headers=cf_api_headers, data=json.dumps(data))
