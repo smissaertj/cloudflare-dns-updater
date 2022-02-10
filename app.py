@@ -75,16 +75,16 @@ def get_public_ip():
         return json_data["ip"]
 
 
-def get_domain_dns():
+def get_domain_dns(domain):
     """ Identify current A record value on Cloudflare """
     try:
-        response = requests.get(CLOUDFLARE_API_BASE_URL + "/zones/" + CLOUDFLARE_ZONE_ID + "/dns_records/" + CF_DOMAIN_ID, headers=cf_api_headers)
+        response = requests.get(CLOUDFLARE_API_BASE_URL + "/zones/" + CLOUDFLARE_ZONE_ID + "/dns_records/?type=A&name=" + domain, headers=cf_api_headers)
         json_data = json.loads(response.content)
     except Exception as error:
         logging.error(error)
     else:
         if response.status_code == 200:
-            return json_data["result"]["content"]
+            return json_data["result"][0]["content"]
 
 
 def update_domain_dns(public_ip):
@@ -108,7 +108,7 @@ def main():
     """ Entrypoint """
 
     public_ip = get_public_ip()
-    current_dns_value = get_domain_dns()
+    current_dns_value = get_domain_dns(CF_DOMAIN)
     logging.debug(f'Public IP: {public_ip} - Current DNS Value: {current_dns_value}')
 
     if public_ip != current_dns_value:
