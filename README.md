@@ -42,3 +42,7 @@ DNS_RECORD_TYPE=A
 FROM_EMAIL=bar@foo.com
 TO_EMAIL=foo@bar.com
 ```
+
+### Logging
+Each time the script is run an `app.log` file is updated under the home directory of the user executing the script.
+The log file contains debug information. 
