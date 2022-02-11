@@ -56,9 +56,6 @@ def send_notification(content):
     try:
         sg = SendGridAPIClient(SENDGRID_API_KEY)
         response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
     except Exception as error:
         logging.error(error)
 
