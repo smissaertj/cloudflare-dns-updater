@@ -95,7 +95,7 @@ def update_domain_dns(public_ip, domain_id):
         logging.error(error)
     else:
         if response.status_code == 200:
-            send_notification(f"Domain DNS A Record updated: {public_ip}")
+            send_notification(f"Domain DNS {DNS_RECORD_TYPE} Record updated: {public_ip}")
         else:
             response = json.loads(response.content)
             send_notification(f"Error updating domain DNS A record:\n{response}")
