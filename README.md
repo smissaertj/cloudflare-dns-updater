@@ -7,7 +7,7 @@ for a DNS record in Cloudflare DNS, if the values do not match.
 An email notification is sent via Sendgrid when a domain is updated or when an error occurs.  
 
 Repository:  
-https://gitlab.com/joerismissaert/public-ip
+https://github.com/smissaertj/cloudflare-dns-updater  
 
 Cloudflare API v4 Documenation:  
 https://api.cloudflare.com/
