@@ -1,0 +1,23 @@
+{
+  "ipify_url": "https://api.ipify.org?format=json",
+  "cloudflare_api_base_url": "https://api.cloudflare.com/client/v4",
+  "cloudflare_api_key": "",
+  "cloudflare_x_auth_email": "",
+  "sendgrid_api_key": "",
+  "from_email": "sender@foo.bar",
+  "to_email": "receiver@foo.bar",
+  "domain_settings": [
+    {
+      "domain_name": "sub.domain.com",
+      "cloudflare_zone_id": "",
+      "proxied": true,
+      "ttl": 3600
+    },
+    {
+      "domain_name": "sub.domain.org",
+      "cloudflare_zone_id": "",
+      "proxied": false,
+      "ttl": 3600
+    }
+  ]
+}
